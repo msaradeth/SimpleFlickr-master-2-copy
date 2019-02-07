@@ -15,7 +15,7 @@ class FlickrViewModel {
     var flickrApi: FlickrApi
     var disposeBag = DisposeBag()
     
-    init(items: [FlickrItem], flickrApi: FlickrApi) {
+    init(items: [FlickrItem] = [], flickrApi: FlickrApi = FlickrApi()) {
         self.itemsValue = items
         self.items = BehaviorSubject<[FlickrItem]>(value: items)
         self.flickrApi = flickrApi
