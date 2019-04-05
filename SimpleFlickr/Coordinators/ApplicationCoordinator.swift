@@ -16,7 +16,10 @@ class ApplicationCoordinator: Coordinator {
     
     init(window: UIWindow) {
         self.window = window
-        flickrViewModel = FlickrViewModel()
+        
+        let items: [FlickrItem] = []
+        let flickrApi = FlickrApi()
+        flickrViewModel = FlickrViewModel(items: items, flickrApi: flickrApi)
         rootVC = UINavigationController()
         flickrVcCoordinator = FlickrVcCoordinator(presenter: rootVC, viewModel: flickrViewModel)
     }

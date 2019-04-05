@@ -10,13 +10,30 @@ import Foundation
 import UIKit
 import RxSwift
 
-protocol FlickrData {
-    var image: UIImage? { get set }
-    var title: String { get set }
+
+
+
+
+
+struct FlickrItem: Codable {
+    var title: String
+    var imageUrlString: String
+    
+//    enum CodingKeys: CodingKey {
+//        case title
+//        case imageUrlString
+//    }
 }
 
+struct FlickrItemService: Codable {
+    var photos: Photos
+    var stat: String
+}
 
-struct FlickrItem: FlickrData {
-    var image: UIImage?
-    var title: String
+struct Photos: Codable {
+    var photo: [FlickrItem]
+    
+    //        enum CodingKeys: CodingKey {
+    //            case photo
+    //        }
 }
